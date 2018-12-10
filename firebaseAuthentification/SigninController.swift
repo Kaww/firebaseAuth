@@ -72,6 +72,7 @@ class SigninController: UIViewController {
                 }
             }
         } else {
+            sender.shake()
             print("Erreur: les champs ne sont pas complets.")
         }
     }

@@ -47,6 +47,7 @@ class LoginController: UIViewController {
         if emailTextField.text != "" && passwordTextField.text != "" {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
                 if error != nil {
+                    sender.shake()
                     print(error.debugDescription)
                 } else {
                     self.performSegue(withIdentifier: "goToHome", sender: self)
@@ -54,6 +55,8 @@ class LoginController: UIViewController {
                     self.passwordTextField.text = ""
                 }
             }
+        } else {
+            sender.shake()
         }
     }
     
